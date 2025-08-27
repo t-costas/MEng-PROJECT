@@ -41,4 +41,5 @@ conda create -n pcb_aoi python=3.10 -y
 conda activate pcb_aoi
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r phase-1-requirements.txt
+pip install -r phase-2-requirements.txt
