@@ -50,6 +50,16 @@ Download from Google Drive: [📥 Phase 1 Dataset](https://drive.google.com/file
 
 The full dataset for Phase 1 is hosted externally to keep this repository lightweight.  
 
+All scripts in directory can be run independently.
+
+### Streamlit App (Phase 1 Demo)
+```powershell
+streamlit run app.py
+```
+The app allows you to:
+- Upload a PCB image
+- Get pass/fail prediction with model confidence
+- Export predictions to CSV
 ## Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
 
 This script runs the **end-to-end Phase 2 pipeline**:
