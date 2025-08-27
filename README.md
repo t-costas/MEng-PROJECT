@@ -59,7 +59,7 @@ This script runs the **end-to-end Phase 2 pipeline**:
 3. Loads **DXF outline** (for board size/position) and **STEP file** (for component footprints).  
 4. Warps each PCB image to a square reference size.  
 5. Extracts component crops (switches).  
-6. Runs **YOLOv8** detection and exports bounding boxes + labels.  
+6. Generates **YOLOv8** directory and exports bounding boxes + labels.  
 7. Saves warped boards, overlays, and cropped components.
 
 #### Example (Windows PowerShell)
