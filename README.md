@@ -44,7 +44,7 @@ conda activate pcb_aoi
 pip install -r phase-1-requirements.txt
 pip install -r phase-2-requirements.txt
 ```
-# Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
+## Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
 
 This script runs the **end-to-end Phase 2 pipeline**:
 
