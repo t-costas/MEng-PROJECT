@@ -44,6 +44,12 @@ conda activate pcb_aoi
 pip install -r phase-1-requirements.txt
 pip install -r phase-2-requirements.txt
 ```
+
+## Phase 1 – Board-Level Dataset (ADEPT, Trackpad, Thumb R1)
+Download from Google Drive: [📥 Phase 1 Dataset](https://drive.google.com/file/d/1WnA2TPdBWIgrhWJEhPM4kcZS8EfwZ4Vh/view?usp=sharing)
+
+The full dataset for Phase 1 is hosted externally to keep this repository lightweight.  
+
 ## Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
 
 This script runs the **end-to-end Phase 2 pipeline**:
