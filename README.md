@@ -1,28 +1,44 @@
-Automated Optical Inspection (AOI) for PCB Defect Detection
+# Automated Optical Inspection (AOI) for PCB Defect Detection
 
-MEng Research Project (MIE8888Y, University of Toronto)
-Author: Tiffany Costas
-Supervisor: Professor Janet Lam
-Partner: Ploopy Corporation
+**MEng Research Project – MIE8888Y, University of Toronto**  
+Author: *Tiffany Costas*  
+Supervisor: *Professor Janet Lam*  
+Partner: [Ploopy Corporation](https://ploopy.co/)
 
 ---
 
-This project develops an Automated Optical Inspection (AOI) pipeline for Printed Circuit Board (PCB) defect detection, combining:
+## 📖 Overview
 
-Phase 1 – Board-Level Classification:
+This project develops an **Automated Optical Inspection (AOI)** pipeline for **Printed Circuit Board (PCB)** defect detection. The system combines classical computer vision, deep learning, and CAD-driven alignment to deliver a reproducible, open-source solution for PCB quality control.
 
-Pass/fail classification of whole PCB images using ResNet18 (transfer learning).
+- **Phase 1 – Board-Level Classification**  
+  - Whole-board pass/fail classification using **ResNet18 (transfer learning)**.  
+  - Tested on three Ploopy boards: **ADEPT**, **Trackpad**, and **Thumb R1**.  
+  - Data augmentation: rotations, scaling, brightness/contrast jitter, pin-cushion distortion.  
 
-Data augmentation: rotations, scaling, brightness/contrast jitter, pin-cushion distortion.
+- **Phase 2 – Component-Level Detection**  
+  - **Fiducial detection** + **homography alignment** with CAD files (DXF/STEP).  
+  - Automatic cropping of component regions (demonstrated on **switches**).  
+  - **YOLOv8** for real-time detection of *good_switch* vs *bad_switch*.  
 
-Evaluated on three board types: ADEPT, Trackpad, and Thumb R1.
+---
 
-Phase 2 – Component-Level Detection:
+## 🛠️ Installation
 
-Fiducial detection and homography alignment to CAD design files (DXF/STEP).
+### Requirements
+- Python 3.10 (Anaconda recommended)  
+- CUDA-enabled GPU (optional but recommended for training)  
 
-Automatic extraction of component bounding boxes (currently demonstrated on switches).
+### Setup
 
-Real-time defect localization using YOLOv8 with good_switch vs bad_switch classes.
+```bash
+# Clone repository
+git clone https://github.com/<your-username>/pcb-aoi.git
+cd pcb-aoi
 
-This hybrid approach demonstrates the feasibility of integrating classical computer vision, deep learning, and CAD-driven alignment into a reproducible open-source inspection framework.
+# Create and activate conda environment
+conda create -n pcb_aoi python=3.10 -y
+conda activate pcb_aoi
+
+# Install dependencies
+pip install -r requirements.txt
