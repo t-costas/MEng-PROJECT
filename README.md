@@ -33,7 +33,7 @@ This project develops an **Automated Optical Inspection (AOI)** pipeline for **P
 
 ```bash
 # Clone repository
-git clone https://github.com/<your-username>/pcb-aoi.git
+git clone https://github.com/<your-username>/MEng-PROJECT.git
 cd pcb-aoi
 
 # Create and activate conda environment
