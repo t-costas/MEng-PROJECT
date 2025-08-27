@@ -43,3 +43,34 @@ conda activate pcb_aoi
 # Install dependencies
 pip install -r phase-1-requirements.txt
 pip install -r phase-2-requirements.txt
+
+### Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
+
+This script runs the **end-to-end Phase 2 pipeline**:
+
+1. Detects fiducials on the PCB panel.  
+2. Computes NE/SW diagonal pairs → identifies individual boards.  
+3. Loads **DXF outline** (for board size/position) and **STEP file** (for component footprints).  
+4. Warps each PCB image to a square reference size.  
+5. Extracts component crops (switches).  
+6. Runs **YOLOv8** detection and exports bounding boxes + labels.  
+7. Saves warped boards, overlays, and cropped components.
+
+#### Example (Windows PowerShell)
+
+```powershell
+& "C:\Users\costas\anaconda3\envs\occ-env\python.exe" `
+  "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\panel_to_pcbs_with_step_dxf_yolo.py" `
+  --imageFilepath "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\images\board0_pass_nodefects_6.png" `
+  --step_path      "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\Adept\Adept.STEP" `
+  --dxf_path       "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\Adept\Adept.DXF" `
+  --dxf_outline_layer "Mechanical2" `
+  --ne_x_mm 22.4 --ne_y_mm -20.4 `
+  --sw_x_mm -18.4 --sw_y_mm 30.0 `
+  --pcb_out_size 900 `
+  --outputDirectory "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\outputs" `
+  --save_component_crops `
+  --dxf_y_up `
+  --export_yolo `
+  --yolo_dir "C:\Users\costas\OneDrive\Desktop\MEng PROJECT\outputs\switches_yolo"
+
