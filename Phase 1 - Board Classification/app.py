@@ -19,12 +19,12 @@ BOARD_NAME_MAP = {
 def load_model():
     model = models.resnet18()
     model.fc = torch.nn.Linear(model.fc.in_features, len(get_all_classes()))
-    model.load_state_dict(torch.load("model_latest.pth", map_location="cpu"))
+    model.load_state_dict(torch.load(r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\Phase 1 - Board Classification\model_weights\model_latest.pth", map_location="cpu")) # MODIFY TO YOUR PATH
     model.eval()
     return model
 
 def get_all_classes():
-    class_dir = os.path.join("dataset_sorted", "train")
+    class_dir = os.path.join(r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\dataset_sorted", "train")
     if not os.path.exists(class_dir):
         return []
     return sorted([d for d in os.listdir(class_dir) if os.path.isdir(os.path.join(class_dir, d))])
@@ -193,7 +193,7 @@ if predictions:
             label = f"{board_choice}_{status_choice}"
 
         if st.button(f"Correct and Save Image {selected_idx}"):
-            save_path = os.path.join("dataset_sorted", "train", label)
+            save_path = os.path.join(r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\dataset_sorted", "train", label)
             os.makedirs(save_path, exist_ok=True)
             timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
             filename = f"{label}_{timestamp}.jpg"
@@ -235,7 +235,7 @@ if predictions:
         label = f"{board_choice}_{status_choice}"
 
     if st.button(f"Save Image {selected_idx} to Training Set"):
-        save_path = os.path.join("dataset_sorted", "train", label)
+        save_path = os.path.join(r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\dataset_sorted", "train", label)
         os.makedirs(save_path, exist_ok=True)
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
         filename = f"{label}_{timestamp}.jpg"

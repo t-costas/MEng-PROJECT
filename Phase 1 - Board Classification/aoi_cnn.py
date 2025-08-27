@@ -13,7 +13,7 @@ import datetime
 
 print("Starting...")
 
-data_dir = "dataset_sorted"
+data_dir = r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\dataset_sorted"
 batch_size = 8
 num_epochs = 10
 learning_rate = 6e-5
@@ -39,7 +39,7 @@ val_loader = DataLoader(val_dataset, batch_size=batch_size, shuffle=False)
 
 model = models.resnet18(weights=ResNet18_Weights.DEFAULT)
 num_classes = len(train_dataset.classes)  # Automatically detects total classes "board0_pass"
-print(num_classes)
+#print(num_classes)
 model.fc = nn.Linear(model.fc.in_features, num_classes)
 model = model.to(device)
 
@@ -104,7 +104,7 @@ for epoch in range(num_epochs):
     print(f"Epoch [{epoch+1}/{num_epochs}] | "
           f"Train Loss: {avg_train_loss:.4f} | Train Acc: {train_acc:.2%} | "
           f"Val Loss: {avg_val_loss:.4f} | Val Acc: {val_acc:.2%}")
-# === Per-Board-Type Accuracy ===
+#  Per-Board-Type Accuracy 
 from collections import defaultdict
 
 board_correct = defaultdict(int)
@@ -124,15 +124,15 @@ with torch.no_grad():
             if pred == label:
                 board_correct[board] += 1
 
-print("\n📊 Per-Board-Type Validation Accuracy:")
+print("\nPer-Board-Type Validation Accuracy:")
 for board in sorted(board_total.keys()):
     acc = board_correct[board] / board_total[board]
     print(f"{board}: {acc:.2%} ({board_correct[board]}/{board_total[board]})")
 
-# === Save Model ===
+#Save Model
 current_date = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
 timestamped_path = f"model_{current_date}.pth"
-latest_path = "model_latest.pth"
+latest_path = r"C:\Users\costas\OneDrive\Desktop\MEng PROJECT\Phase 1 - Board Classification\model_weights\model_latest.pth"
 
 torch.save(model.state_dict(), timestamped_path)
 torch.save(model.state_dict(), latest_path)
@@ -141,7 +141,7 @@ print(f"Model saved at {timestamped_path}")
 print(f"Also saved latest model to {latest_path}")
 
 
-'''# === Plot Loss & Accuracy ===
+'''# Plot Loss & Accuracy 
 plt.figure(figsize=(8, 5))
 plt.plot(train_losses, label="Train Loss", marker='o')
 plt.plot(val_losses, label="Val Loss", marker='o')
@@ -164,7 +164,7 @@ plt.grid(True)
 plt.tight_layout()
 plt.show()
 
-# === Confusion Matrix ===
+#  Confusion Matrix 
 all_preds, all_labels = [], []
 model.eval()
 with torch.no_grad():
