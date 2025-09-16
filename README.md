@@ -7,9 +7,9 @@ Partner: [Ploopy Corporation](https://ploopy.co/)
 
 ---
 
-## 📖 Overview
+## Overview
 
-This project develops an **Automated Optical Inspection (AOI)** pipeline for **Printed Circuit Board (PCB)** defect detection. The system combines classical computer vision, deep learning, and CAD-driven alignment to deliver a reproducible, open-source solution for PCB quality control.
+This project develops an **Automated Optical Inspection (AOI)** pipeline for **Printed Circuit Board (PCB)** defect detection. The system combines classical computer vision, deep learning, and CAD-driven alignment to deliver a reproducible, open-source solution for PCB quality control. More detailed descriptions of the code can be found within each subfolder.
 
 - **Phase 1 – Board-Level Classification**  
   - Whole-board pass/fail classification using **ResNet18 (transfer learning)**.  
@@ -23,7 +23,7 @@ This project develops an **Automated Optical Inspection (AOI)** pipeline for **P
 
 ---
 
-## 🛠️ Installation
+## Installation
 
 ### Requirements
 - Python 3.10 (Anaconda recommended)  
@@ -47,11 +47,12 @@ pip install -r phase-2-requirements.txt
 
 ## Phase 1 – Board-Level Dataset (ADEPT, Trackpad, Thumb R1)
 
-The full dataset for Phase 1 is hosted externally to keep this repository lightweight.  
+The full dataset for Phase 1 is hosted externally to keep this repository lightweight. Please ask Professor for dataset access. 
 
-All scripts in directory can be run independently.
+All scripts in directory can be run independently. 
 
 ### Streamlit App (Phase 1 Demo)
+Ensure that the entire Phase 1 - Board Classification folder is pulled. **Prior to running, ensure that the filepaths for the model_weights and images are set correctly to your local machine**
 ```powershell
 streamlit run app.py
 ```
@@ -59,6 +60,8 @@ The app allows you to:
 - Upload a PCB image
 - Get pass/fail prediction with model confidence
 - Export predictions to CSV
+
+
 ## Phase 2 Help (`panel_to_pcbs_with_step_dxf_yolo.py`)
 
 This script runs the **end-to-end Phase 2 pipeline**:
