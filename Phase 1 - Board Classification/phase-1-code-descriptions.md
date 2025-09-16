@@ -46,3 +46,9 @@ This folder contains scripts for **board-level pass/fail classification** of pri
 1. Install dependencies:
    ```bash
    pip install -r phase-1-requirements.txt
+2. Train the model to update weights
+   ```bash
+   python aoi_cnn.py
+3. Run the web app
+   ```bash
+   streamlit run app.py
