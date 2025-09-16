@@ -1,9 +1,3 @@
-
----
-
-### `Phase 2 - Component Classification`
-
-```markdown
 # Phase 2 – Component Classification
 
 This folder contains scripts for **component-level defect detection**. Unlike Phase 1, which classifies entire boards, Phase 2 leverages **fiducial alignment and CAD data (DXF/STEP)** to locate and crop individual components (e.g., switches). Cropped images are then used to train a **YOLOv8 object detector**.
